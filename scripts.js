@@ -1,4 +1,20 @@
 
+
+///mobile adaptation
+
+
+ <!--
+      if (screen.width <= 699) {
+         document.location = "start_3.html";
+           }
+            //-->
+
+
+
+
+
+
+
 ///this is the slideShow JS code.
 let counter = 2;
 	
@@ -106,14 +122,7 @@ function closeNav(){
 
 
 
-///mobile adaptation
 
-
- <!--
-      if (screen.width <= 699) {
-         document.location = "go-lang.html";
-           }
-            //-->
 
 
 
