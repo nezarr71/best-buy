@@ -1,0 +1,180 @@
+<!Doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>cart</title>
+	<link rel="stylesheet"  href="macally.css">
+</head>
+<body>
+
+
+
+	<div class="header">
+		
+		<p class="logo">AMZN  Spend Less, Smile More</p>
+
+		<div class="cart">
+			<!----here lies cart--->
+			<i class="bi bi-cart4"></i>
+			<p id="count">0</p> </div>
+	<!--here is COUNT--->
+
+
+
+
+		
+	</div>
+	<!---header ENDS here--->
+
+		<div class="container">
+			<div id="root"></div>
+				<div class="sidebar">
+					<div class="head"> <p>My cart</p></div>
+					<div id="cartItem">Your cart is empty</div>
+						<div class="foot">
+							<!--I messed up here by using a class selector instead of ID -->
+							<h3>Total</h3>
+								<h2 id="total">$ 0.00</h2>
+								<!----here is TOTAL, Houston we have a BUG--->
+
+						</div>
+
+				</div>
+
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	///this ${images} is reffering to the array
+	const product = [
+	{
+		id:0,
+		image:'product/sonic.jpg',
+		title:'Sonic outfit kids',
+		price:30,
+	},
+
+	{
+		id:1,
+		image:"product/bomber-jacket.jpeg",
+		title:"bomber-jacket",
+		price: 65,
+	},
+
+	{
+		id:2,
+		image:"product/echo.jpeg",
+		title:"amazon echo device",
+		price:70,
+	}
+
+
+		];
+
+
+	const categories = [...new Set(product.map((item)=>{return item}))] 
+	let i=0;
+
+
+		document.getElementById('root').innerHTML = categories.map((item)=>{
+			let {image, title, price} = item;
+			total = total+price;
+			document.getElementById('total').innerHTML = "$"+total+".00";
+			/* return statement */
+			return(
+					`<div class='box'>
+						<div class='img-box'>
+							<img class='images' src=${image}></img>
+							</div>
+							<div class= 'bottom'>
+
+							<p>${title}</p>
+							<h2>$ ${price}.00</h2>` +
+							"<button onclick='addtocart("+(i++)+")'>Add to Carts</button>"+
+
+
+
+							`</div>
+							</div>`
+				)
+
+
+		}).join('')
+
+
+		let cart = [];
+
+		function delElement(a){
+			cart.splice(a, 1);
+			displayCart();
+
+
+		}
+
+
+		function addtocart(a){
+			cart.push({...categories[a]});
+			displayCart();
+
+		}
+
+
+		function displayCart(a){
+			var j = 0, total=0;
+			document.getElementById('count').innerHTML = cart.length;
+			///here I did not spell "length" correctly.
+			if(cart.lenght==0){
+				document.getElementById('cartItem').innerHTML = "Your cart is empty!";
+				document.getElementById("total").innerHTML = "$"+0+".00";
+
+			}
+			else{
+				document.getElementById('cartItem').innerHTML = cart.map((items)=>{
+					////never seen this vefore!
+					var {image, title, price} = items;
+					total = total+price;
+					document.getElementById('total').innerHTML = "$"+total+ ".00"; 
+						return(
+							`<div class= 'cart-item'>
+							<div class= 'row-img'>
+							<img class='rowimg' src=${image}>
+							</div>
+							<p style='font-size:12px;'>${title}</p>
+							<h2 style='font-size:15px;'>${price}.00 </h2>`+
+							"<i class='bi bi-trash' onclick='delElement("+(j++)+")'></i></div>"
+							
+							  
+
+							);
+						
+
+				}).join('');
+
+
+			}
+
+		}
+
+
+
+
+
+
+
+</script>
+ 
+  </body>
+
+	
+</body>
+</html>

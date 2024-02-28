@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>bomber-Jacket</title>
+	<link rel="stylesheet"  href="stats.css">
+</head>
+<body>	
+	
+
+
+
+<div class="star-rating">
+	
+	<button class="star">&#9734;</button>
+	<button class="star">&#9734;</button>
+	<button class="star">&#9734;</button>
+	<button class="star">&#9734;</button>
+	<button class="star">&#9734;</button>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!--how to ADD selectable star-rating?--->
+		<div class="container">
+
+			<div class="slider">
+	
+			<div class="slides">
+		<!--radio button srtarts-->		
+			<input type="radio" name="radio-btn" id="radio1">
+
+            <input type="radio" name="radio-btn" id="radio2">
+
+
+            				
+         <!--radio buttons ends--->   
+         <div class="slide first">
+		
+
+		<img src="./product/bomber-jacket.jpeg">
+
+
+		</div>
+
+		<div class="slide">
+			
+			<img src="./product/green_sweater.jpg">
+
+
+
+		</div>
+
+
+
+
+
+
+
+			</div>
+
+			<div class=" navigation-manual">
+			
+			<label for="radio1" class="manual-btn"></label>
+
+            <label for="radio2" class="manual-btn"></label>
+            <!---manual nav ends---->
+
+            
+
+		</div>
+
+
+
+</div>
+	<!---this si where Slider ends-->
+
+		
+
+		
+
+
+		</div>
+
+
+
+
+
+
+
+<script type="text/javascript">
+	const allStars = document.querySelectorAll('.star');	
+
+
+	allStars.forEach((star, i)=>{
+		star.onclick = function(){
+			let current_star_level = i + 1;
+
+			allStars.forEach((star, j)=>{
+				if (current_star_level >= j + 1){
+					star.innerHTML = '&#9733';
+
+				}else{star.innerHTML = '&#9734';
+
+
+
+				}
+
+			})
+
+		}
+		
+	})
+
+/*we forgot to add the curly-fries on the func. */
+
+
+
+
+</script>	
+</body>
+</html>

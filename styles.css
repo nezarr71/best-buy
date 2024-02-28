@@ -1,0 +1,428 @@
+/*try adding the google fonts trought the root size reuleset */
+
+
+
+
+/*Lets erase that text-deco */
+a:hover, a:visited, a:link, a:active{
+	text-decoration: none;
+
+}
+
+
+
+
+/* the root size of the document */
+:root{
+	font-size:;
+	font-family:cursive;
+	--bg-primary:#292331;
+	--bg-secondary:#3a3b3c;
+	/*dark-grey*/
+	--third-blanco:#fff;
+}
+
+
+
+
+
+
+.reaserch-b{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	height:10rem ;
+	width:100% ;
+	background-color:var(--bg-primary) ;
+
+}
+
+
+#b, #q{
+	margin:0;
+
+
+}
+
+
+#q{
+	padding:5px;
+	font-size:2em;
+	padding-left:50px;
+	line-height: 30px;
+}
+
+
+#b{
+	position: relative;
+	width:32px;
+	height:32px;
+	display:block;
+	bottom:40px;
+	left:18px;
+
+}
+
+
+
+
+
+#amz{
+	position:relative;
+	right:22rem;
+	bottom:20px;
+}
+
+
+
+#carro{
+	position: relative;
+	left:8em;
+	bottom:20px;
+
+
+}
+
+/*here lies the side-menu */
+.small{
+	display: flex;
+	justify-content: space-around;
+	height:2rem;
+	background:var(--bg-secondary);
+	width:100% ;
+}
+
+
+
+
+.container{
+	display: grid;
+	place-items: center;
+
+}
+
+/* here lies the CSS for image-slider */
+
+.slider{
+	width:800px;
+	height:500px;
+	border-radius:10px;
+	overflow: hidden;
+	
+}
+
+
+.slides{
+ 	width:500%;	
+	height:500px;
+	display: flex
+}
+
+
+.slides input{
+	display:none; 
+
+}
+
+
+.slide{
+	width:20%;
+	transition:2s; 
+	
+}
+
+
+.slide img{
+	width:800px;	
+	height:500px;	
+	
+	
+}
+
+.navigation-manual{
+	position: absolute;
+	width:800px;
+	margin-top:-40px;
+	display: flex;
+	justify-content: center;
+}
+
+
+.manual-btn{
+	border:2px solid #000000;
+	padding:5px;
+	border-radius:10px ;
+	cursor:pointer;	
+}
+
+
+.manual-btn:not(:last-child){
+	margin-right:40px ;
+	
+	 
+}
+
+.manual-btn:hover{
+	background:#000000;	
+
+}
+
+#radio1:checked~.first{
+	margin-left:0;
+	
+}
+
+#radio2:checked~.first{
+	margin-left:-20%;	
+	
+}
+
+#radio3:checked~.first{
+	margin-left: -40%;
+}
+#radio4:checked~.first{
+	margin-left: -60%;
+	
+}
+
+
+
+.navigation-auto {
+    position: absolute;
+    display: flex;
+    width:800px;
+    margin-top: 460px;
+    justify-content: center;
+}
+
+
+.navigation-auto div{
+	border:2px solid #fff;	
+	padding:5px;
+	border-radius: 10px;
+	transition:1s;
+	
+}
+
+.navigation-auto div:not(:last-child){
+	margin-right:40px;
+	
+}
+
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+    background:#fff;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn{
+	background:#fff;
+	
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn{
+	background:#fff;
+	
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn{
+	background:#fff;
+	
+}
+
+
+/* here lies the slider rulesets */
+.gallery{
+	width:100%;
+	display:flex;
+	overflow-x: scroll;
+	height: 16rem;
+}
+		
+.gallery .wrapper{
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 1fr;
+	padding:15px;
+	flex: none;
+	
+}
+
+.gallery, .wrapper, .product{
+	width:100%;
+	filter:grayscale(100%);
+	transition: transform 0.5s;
+
+}
+
+
+.gallery::-webkit-scrollbar{
+	display: none;
+
+
+}
+
+.gallery-wrap{
+	display: flex;
+	justify-content:center ;
+	align-items:center ;
+	margin: 10% auto;
+}
+
+
+
+#backBtn, #nextBtn{
+	cursor: pointer;
+	margin:40px;
+	width: 8rem;
+}
+
+
+.gallery, .wrapper, .product:hover{
+	filter: grayscale(0);
+	transform: scale(1.1);
+	
+
+}
+
+
+
+
+
+.product{
+	height:11rem;
+	width: 11rem;
+
+}
+
+
+
+
+
+/* footer decoration */
+    
+
+.footer{
+	background:var(--bg-primary);
+	padding:4rem 0;
+
+}
+
+.footer-2{
+	display: flex;
+	flex-direction: column;
+	margin-left: 60rem;
+	width:100%;
+	background:var(--bg-primary);
+}
+
+
+
+.footer-3{
+	position:relative;
+	left:8rem;
+	bottom:2rem;
+}
+
+
+ul{
+	color:var(--third-blanco);
+	list-style: none;
+
+}
+
+
+/* sideMenu rules and structure */
+
+
+.sidenav{
+	height:80rem;
+	width:0;
+	position:fixed;
+	left:0;
+	z-index: 5;
+	background-color:var(--third-blanco);
+	overflow-x:hidden;
+	transition:0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);;
+	padding-top:60px;
+
+}
+
+.sidenav a{
+	margin:30px 16px 16px 30px;
+	font-size: 2rem;
+	display: block;
+	color:#000000;
+	transition:0.3s;
+}
+
+
+.sidenav .closebtn{
+	position: absolute;
+	top:0;
+	right:24px;
+	margin-left: 49px;
+}
+
+
+.sidenav a:hover{
+	color:#808080;
+
+}
+
+
+
+
+.grid{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+
+
+
+.card{
+	background:var(--third-blanco);
+	width:12rem;
+	margin:2rem;
+	border-radius: 8%;
+
+}
+
+
+.card-picture{
+	background-color:aquamarine ;
+	height:10rem;
+	margin-bottom:5rem ;
+	background-size: cover;
+	border-radius: 8%;
+}
+
+
+.us-3{
+	background-image: url(./product/sonic.jpg);
+
+
+}
+
+
+
+
+.mx-2{
+	background-image: url(./product/41BJH.jpg);
+
+
+
+}
+
+
+.ca-1{
+	background-image: url(./product/echo.jpeg);
+
+}
+
+
+
+
+

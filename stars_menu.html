@@ -1,0 +1,222 @@
+<!Doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Green Jacket    </title>
+	<style>
+		.star-rating{
+			user-select: none;
+
+		}
+
+
+		.star{
+			color:yellow;
+			background-color: unset;
+			border:none;
+			font-size: 2rem;
+		}
+
+
+		*{
+			box-sizing: border-box;
+
+		}
+
+		.slider{
+			width:300px;
+			overflow:hidden;
+		}
+
+
+		.slides{
+			display: flex;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			scroll-behavior: smooth;
+			-webkit-overflow-scrolling:touch;
+
+		}
+
+
+		.slides::-webkit-scrollbar-thumb{
+			background:#212329;
+			border-radius: 10px;
+
+
+		}
+
+
+		.slides::-webkit-scrollbar-track{
+			background:transparent;
+
+
+
+		}
+
+
+		.slides>div {
+		    scroll-snap-align: start;
+		    flex-shrink: 0;
+		    width: 300px;
+		    height: 300px;
+		    margin-right: 50px;
+		    border-radius: 10px;
+		    background: #eee;
+		    transform-origin: center center;
+		    transform: scale(1);
+		    transition: transform 0.5s;
+		    position: relative;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+
+
+		}
+
+
+
+		img{
+			object-fit: cover;
+			position: absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+		}
+
+
+
+		html, body{
+			height:100%;
+			overflow: hidden;
+
+		}
+
+
+		h2{
+			text-align: center;
+
+		}
+		
+
+	</style>
+
+
+
+</head>
+<main>
+	
+<div class="star-rating">
+	<button class="star">&#9734;</button>
+    <button class="star">&#9734;</button>
+    <button class="star">&#9734;  </button>
+    <button class="star">&#9734; </button>
+    <button class="star">&#9734; </button>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="slider">
+	
+
+	<div class="slides">
+		
+
+			<div class="slide-1">
+				<img  src="./items/green_sweater.jpg">
+
+
+			</div>
+
+				<div class="slide-2">
+					<img  src="./items/bomber-jacket.jpeg">
+
+
+
+				</div>
+
+
+
+
+
+
+
+	</div>
+
+
+
+	<h2>Bomber Jacket	</h2>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
+	
+<script type="text/javascript">
+	const allStars = document.querySelectorAll('.star');
+	allStars.forEach((star, i)=>{
+		star.onclick = function(){
+
+			let current_star_level = i + 1;
+
+
+			allStars.forEach((star, j)=>{
+				if(current_star_level >= j + 1){
+				star.innerHTML = '&#9733';
+			}else{
+				star.innerHTML = '&#9734';
+
+			}
+
+
+
+			})
+		}
+
+	})
+
+
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

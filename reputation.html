@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<title>shopping buggie</title>
+	<style>
+		/* lets write some style, mounting the app is ground-zero, TAB-CAPS-SHIFT */
+
+
+
+		*{
+			margin:0;
+			padding:0;
+			box-sizing: border-box;
+		
+		}		
+
+		.header{
+			height:10em ;
+			width:14em;
+			background-color:#3a3b3c ;
+			border-radius: 5px;
+			margin:30px 0;
+
+		}
+
+		.header .logo{
+			font-size:2em ;
+			font-weight: bold;
+			color:#fff;
+		}
+
+
+
+		.cart {
+            background: #fff;
+            position: relative;           
+            padding: 1em 2em;
+            border-radius: 2em;
+            width:1em;
+            left:9rem;
+
+        }
+
+
+
+		.cart p{
+			color:#fff;
+			height:1em;
+			width:1em;
+			border-radius:5px ;
+			background-color: #3a3b3c;
+
+		}
+
+		body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+
+
+        .container{
+        	position: absolute;
+        	top:15rem;
+        	margin-bottom: 30px;
+        }
+
+
+        #root{
+        	width:60%;
+
+
+        }
+
+        .sidebar{
+        	width:115%;
+        	border-radius:5px ;
+        	background:#808080;
+        	margin-left: 20px;
+        	padding:15px;
+        	text-align: center;
+
+        }
+
+        .head{
+        	background:#212329;
+        	border-radius: 3px;
+        	height:40px;
+        	padding:9px;
+        	margin-bottom:5px ;
+        	color:#fff;
+        }
+
+        .foot{
+        	margin:10px 0;
+        	padding:5px 0;
+        	border-top: 1px solid #3a3b3c;
+        	display: flex;
+        	justify-content: space-between;
+
+        }
+
+
+        .box{
+        	border:	1px solid #212329;
+        	border-radius:5px ;
+        	padding:2px;
+        	width:9em;
+        	position: relative;
+        	bottom: 35px;
+        }
+
+        .img-box{
+        	width:100%;
+        	height:101px;
+        	display: flex;
+        	align-items: center;
+        	justify-content: center;
+
+        }
+
+
+        .images{
+        	max-height:90% ;
+        	max-height: 90%;
+        	object-fit: cover;
+        	object-position: center;
+        }
+
+
+        .bottom{
+        	margin-top: 20px;
+        	width:100%;
+        	text-align: center;
+        	height:110px;
+        	bottom:25px;
+        }
+
+        h2{
+        	color:red;
+        	font-size: 28px;
+        }
+
+
+
+        button{
+        	width:100%;
+        	position: relative;
+        	boder:none;
+        	border-radius:40% ;
+        	background-color:#3a3b3c ;
+        	padding:7px 24px;
+        	color:#fff;
+        }
+
+
+
+       .cartItem{
+       	padding: 10px;
+       	backround:#fff;
+       	border-bottom: 1px solid #808080;
+       	border-radius: 3px;
+       	margin:10px 10px;
+       }
+
+
+       .row-img{
+       	width:60px;
+       	height:60px;
+       	border-radius:60% ;
+       	display: flex;
+       	align-items: center;
+       	justify-content: center;
+       	background-color: #fff;
+
+       }
+
+       .rowimg{
+       		max-width:43px ;
+       		max-height:43px;
+       		border-radius: 50%;
+
+
+
+       }
+
+
+
+
+
+	</style>
+</head>
+<body>
+
+
+
+	<div class="header">
+			<p class="logo">Amazon, spend less, smile more </p>
+
+				<div class="cart"> 
+
+					<i class="bi bi-cart4"></i>
+
+
+
+
+
+					<p id="count">0</p>
+
+				</div>
+				 
+
+
+
+				 
+	</div>
+	<br>
+	<!------header ends here----->
+
+		<div class="container">
+			<!-------MISPLACED closing DIV------->
+			<div id="root"></div>
+				<div class="sidebar">
+					
+					<div class="head"><p> My carts</p>  </div>
+
+					<div id="cartItem">Your cart has no soul </div>
+
+
+
+
+						<div class="foot">
+							<h3> Total </h3>
+							 <h2 id="total">$0.00</h2>
+
+
+						</div>
+
+
+				</div>
+
+
+			
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	
+	///tab-caps-shift
+
+	const product =[
+	{
+		id:0 ,
+		image:'items/sonic.jpg' ,
+		title:'Sonic outfit for kids' ,
+		price: 30, 
+	}
+
+		];
+
+
+
+	const categories = [...new Set(product.map((item)=>
+		{return item}))]
+
+		let i=0;
+		///cannot  set prop of null(innerhtml'root id')
+		document.getElementById('root').innerHTML = categories.map((item)=>
+		{
+			var{image, title, price} = item;
+			return(
+				`<div class="box" >
+					<div class="img-box" >
+						<img class="images" src=${image}>
+							</div>
+							<div class="bottom">
+								<p>${title}</p>
+									<h2>$ ${price}.00</h2>`+
+						"<button onclick='addtocart(" + (i++) + ")'>Add to cart</button>" +			
+						`</div>
+							</div>`
+
+
+				)
+		}).join('')
+			
+
+		var cart = [];
+
+		function addtocart(a){
+			cart.push({...categories[a]});
+				displaycart();
+
+		}
+		function delElement(a){
+			cart.splice(a, 1 );
+			displaycart();
+		}
+
+
+		function displaycart(a){
+			let j = 0, total = 0;
+			document.getElementById('count').innerHTML = cart.length;
+			
+
+
+			if(cart.lenght==0 ){
+				document.getElementById('cartItem').innerHTML = "Your cart is empty";
+				document.getElementById().innerHTML = "$  "+0+ ".00";
+			}
+			else{
+				document.getElementById('cartItem').innerHTML = cart.map((item)=>
+				{
+					let{image, title, price} = item;
+					total = total + price;
+					document.getElementById('total').innerHTML = "$ "+total+".00";
+
+					return(
+						  `<div class="cart-item">
+						     <div class="row-img">
+						     	<img class="rowimg" src=${image}>
+						     		</div>
+						     		<p style="font-size:12px;">${title}</p>
+						     		 <h2 style="font-size:15px;">$${price}.00</h2>`+
+						     "<i class='bi bi-trash' onclick='delElement(" + (j++) + ")'></i></div>"		 
+
+						)
+
+				}).join('');
+
+
+			}
+
+		}
+
+
+</script>	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
